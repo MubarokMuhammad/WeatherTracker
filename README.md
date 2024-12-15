@@ -19,23 +19,40 @@
 
 ## Screenshots
 
-- **Home Screen (With Empty State)**:
-  ![Home Screen](Screenshot/Home-Empty-State.png)
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
 
-- **Home Screen (With Data After Search)**:
-  ![Search Screen](Screenshot/Home-3.png)
+  <div style="flex: 1 1 calc(50% - 10px); text-align: center;">
+    <p>Home Screen (With Empty State)</p>
+    <img src="Screenshot/Home-Empty-State.png" alt="Home Screen" style="max-width: 100%; height: auto; width: 300px;">
+  </div>
 
-- **Home Screen (With Data After Search and Close App)**:
-  ![Search Screen](Screenshot/Home-1.png)
+  <div style="flex: 1 1 calc(50% - 10px); text-align: center;">
+    <p>Home Screen (With Data After Search)</p>
+    <img src="Screenshot/Home-3.png" alt="Search Screen" style="max-width: 100%; height: auto; width: 300px;">
+  </div>
 
-- **Home Screen (With Data After Search and Close App)**:
-  ![Search Screen](Screenshot/Home-2.png)
+  <div style="flex: 1 1 calc(50% - 10px); text-align: center;">
+    <p>Home Screen (With Data After Search and Close App)</p>
+    <img src="Screenshot/Home-1.png" alt="Search Screen" style="max-width: 100%; height: auto; width: 300px;">
+  </div>
 
-- **Search Result Screen**:
-  ![Search Screen](Screenshot/Search-result.png)
+  <div style="flex: 1 1 calc(50% - 10px); text-align: center;">
+    <p>Home Screen (With Data After Search and Close App)</p>
+    <img src="Screenshot/Home-2.png" alt="Search Screen" style="max-width: 100%; height: auto; width: 300px;">
+  </div>
 
-- **No Results Screen**:
-  ![Home Screen](Screenshot/No-results.png)
+  <div style="flex: 1 1 calc(50% - 10px); text-align: center;">
+    <p>Search Result Screen</p>
+    <img src="Screenshot/Search-result.png" alt="Search Screen" style="max-width: 100%; height: auto; width: 300px;">
+  </div>
+
+  <div style="flex: 1 1 calc(50% - 10px); text-align: center;">
+    <p>No Results Screen</p>
+    <img src="Screenshot/No-results.png" alt="Home Screen" style="max-width: 100%; height: auto; width: 300px;">
+  </div>
+
+</div>
+
 
 ## Tech Stack
 
