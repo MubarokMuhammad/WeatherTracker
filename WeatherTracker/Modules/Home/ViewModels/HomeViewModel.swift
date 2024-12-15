@@ -17,16 +17,19 @@ class HomeViewModel: ObservableObject {
     @Published var feelsLike: String = ""
     @Published var weatherIcon: String = ""
     @Published var errorMessage: String?
+    @Published var searchResults: [String] = [] // Menambahkan daftar hasil pencarian
 
     private let weatherService: WeatherServiceProtocol
     private let networkMonitor: NetworkMonitor
     private let userDefaultsKey = "SavedCity"
 
+    private var cancellables: Set<AnyCancellable> = []
+
     init(weatherService: WeatherServiceProtocol = WeatherService(), networkMonitor: NetworkMonitor = NetworkMonitor()) {
         self.weatherService = weatherService
         self.networkMonitor = networkMonitor
         loadSavedCity()
-        
+
         networkMonitor.$isConnected
             .sink { [weak self] isConnected in
                 if !isConnected {
@@ -38,8 +41,13 @@ class HomeViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-    private var cancellables: Set<AnyCancellable> = []
-
+    func loadStatusShownData() {
+        if let savedCity = UserDefaults.standard.string(forKey: userDefaultsKey) {
+            fetchWeather(for: savedCity)
+        }
+    }
+    
+    
     func loadSavedCity() {
         if let savedCity = UserDefaults.standard.string(forKey: userDefaultsKey) {
             fetchWeather(for: savedCity)
@@ -51,6 +59,7 @@ class HomeViewModel: ObservableObject {
             do {
                 let weather = try await weatherService.fetchWeather(for: city)
                 DispatchQueue.main.async {
+                    UserDefaults.standard.set(false, forKey: "statusShownData")
                     self.updateWeather(weather)
                     self.saveCity(city)
                 }
@@ -71,11 +80,16 @@ class HomeViewModel: ObservableObject {
         uvIndex = "\(weather.current.uv)"
         feelsLike = "\(weather.current.feelslike_c)°C"
         weatherIcon = "https:\(weather.current.condition.icon)"
-        errorMessage = nil 
+        errorMessage = nil
     }
 
     private func saveCity(_ city: String) {
         UserDefaults.standard.set(city, forKey: userDefaultsKey)
+    }
+
+    // Metode pencarian kota
+    func searchCities(query: String) {
+        searchResults = ["New York", "Los Angeles", "London", "Tokyo"].filter { $0.lowercased().contains(query.lowercased()) }
     }
 
     deinit {

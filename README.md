@@ -19,11 +19,23 @@
 
 ## Screenshots
 
-- **Home Screen (With Weather Info)**:
-  ![Home Screen](path_to_screenshot_home_screen)
+- **Home Screen (With Empty State)**:
+  ![Home Screen](Screenshot/Home-Empty-State.png)
 
-- **Search Screen (With Search Bar)**:
-  ![Search Screen](path_to_screenshot_search_screen)
+- **Home Screen (With Data After Search)**:
+  ![Search Screen](Screenshot/Home-3.png)
+
+- **Home Screen (With Data After Search and Close App)**:
+  ![Search Screen](Screenshot/Home-1.png)
+
+- **Home Screen (With Data After Search and Close App)**:
+  ![Search Screen](Screenshot/Home-2.png)
+
+- **Search Result Screen**:
+  ![Search Screen](Screenshot/Search-result.png)
+
+- **No Results Screen**:
+  ![Home Screen](Screenshot/No-results.png)
 
 ## Tech Stack
 
